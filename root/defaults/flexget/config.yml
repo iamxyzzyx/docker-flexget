@@ -1,0 +1,22 @@
+variables: flexget_secrets.yml
+
+web_server: yes
+
+irc:
+  iptorrents:
+    tracker_file: '/config/trackers/IPTorrents.tracker'
+    server: '{? ipt.server ?}'
+    port: '{? ipt.port ?}'
+    password: '{' ipt.password ?}'
+    use_ssl: Yes
+    nickname: '{? ipt.nick ?}'
+    channels: ['#ipt.announce']
+    task: ipt-freeleech
+    passkey: '{? ipt.passkey ?}'
+
+tasks:
+  ipt-freeleech:
+    manual: yes
+    if:
+      - "irc_freeleech == 'true'": accept
+    download: /watch/deluge

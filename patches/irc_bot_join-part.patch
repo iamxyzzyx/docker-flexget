@@ -1,0 +1,12 @@
+diff -Naur a/simple_irc_bot.py b/simple_irc_bot.py
+--- a/simple_irc_bot.py	2018-09-22 19:26:45.823288339 +0200
++++ b/simple_irc_bot.py	2018-09-22 19:27:33.958573549 +0200
+@@ -297,7 +297,7 @@
+         if msg.from_nick == self.real_nickname:
+             log.info('Joined channel %s', channel)
+             if channel not in self.channels or self.channels[channel.lower()] == IRCChannelStatus.IGNORE:
+-                self.part([channel])
++#                self.part([channel])
+                 return
+             self.channels[msg.arguments[0].lower()] = IRCChannelStatus.CONNECTED
+ 

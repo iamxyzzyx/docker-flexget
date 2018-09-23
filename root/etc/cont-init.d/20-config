@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bash
+
+chown -R abc:abc /defaults
+
+
+#### FLEXGET ####
+if [ ! -e /config/config.yml ]; then
+  cp /defaults/flexget/config.yml /config
+fi
+
+# set permissions
+chown -R abc:abc \
+	/config \
+chown abd:abc \
+    /watch/deluge \
+    /watch/rtorrent
+
+
+
+
+
+
+
+
