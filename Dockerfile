@@ -14,7 +14,7 @@ COPY patches/ /tmp
 RUN \
     echo "***** INSTALLING PACKAGES *****" && \
     apt-get update && \
-    apt-get install --no-install-recommends -y python-pip deluge-console gosu curl wget unzip && \
+    apt-get install --no-install-recommends -y python-pip deluge-console gosu curl wget unzip patch && \
     wget --quiet -O /tmp/trackers.zip https://github.com/autodl-community/autodl-trackers/archive/master.zip && \
     mkdir -p /defaults/flexget/trackers && \
     cd /defaults/flexget/trackers && \
@@ -24,7 +24,7 @@ RUN \
 
 ENV PYTHON_EGG_CACHE="/config/plugins/.python-eggs"
 RUN \
-    pip install --upgrade setuptools && \
+    pip install --upgrade pip setuptools wheel && \
     pip install flexget irc_bot python-telegram-bot && \
     cd /usr/local/lib/python2.7/dist-packages/flexget && \
     patch -Np1 -i /tmp/flexget_irc_password.patch && \
