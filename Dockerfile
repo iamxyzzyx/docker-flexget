@@ -28,6 +28,7 @@ RUN \
     pip install flexget irc_bot python-telegram-bot && \
     cd /usr/local/lib/python2.7/dist-packages/flexget && \
     patch -Np1 -i /tmp/flexget_irc_password.patch && \
+    cd /usr/local/lib/python2.7/dist-packages/irc_bot && \
     patch -Np1 -i /tmp/irc_bot_join-part.patch && \
     mkdir -p /watch/{deluge,rtorrent} && \
     rm -fr /tmp/*
