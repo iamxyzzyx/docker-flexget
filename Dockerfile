@@ -24,7 +24,7 @@ RUN \
 
 ENV PYTHON_EGG_CACHE="/config/plugins/.python-eggs"
 RUN \
-    pip install --upgrade pip setuptools wheel && \
+    pip install --upgrade setuptools wheel && \
     pip install flexget irc_bot python-telegram-bot && \
     cd /usr/local/lib/python2.7/dist-packages/flexget && \
     patch -Np1 -i /tmp/flexget_irc_password.patch && \
